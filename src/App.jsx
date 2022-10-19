@@ -2,6 +2,7 @@ import React, { Fragment, useState, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { TodoList } from "./components/TodoList";
 
+
 const KEY = "todoApp.todos";
 //funcion normal
 export function App() {
@@ -53,11 +54,13 @@ export function App() {
     <Fragment>
       <TodoList todos={todos} toggleTodo={toggleTodo} />
       <input ref={todoTaskRef} type="text" placeholder="Nueva tarea" />
-      <button onClick={handleTodoAdd}>Añadir</button>
-      <button onClick={handleClearAll}>Eliminar</button>
+      <button style = {{color:'green'}} onClick={handleTodoAdd}>+</button>
+      <button style = {{color:'red'}} onClick={handleClearAll}>-</button>
       <div>
+        <h5>
         Te quedan {todos.filter((todo) => !todo.completed).length} tareas por
         terminar
+        </h5>
       </div>
     </Fragment>
   );
