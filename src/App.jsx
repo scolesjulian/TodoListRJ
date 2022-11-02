@@ -1,14 +1,15 @@
-
 import './App.css';
-import Header from "./MyComponents/Header";
+import NavbarNav from "./MyComponents/NavbarNav";
+import Sidebar from "./MyComponents/Sidebar";
 import {Todos} from "./MyComponents/Todos";
 import {Footer} from "./MyComponents/Footer";
 import {AddTodo} from "./MyComponents/AddTodo";
-import {About} from "./MyComponents/About";
+import {About} from "./pages/About";
+import {Login} from "./pages/Login";
 import { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router, 
-  Switch, //switch basically matches the path one by one , and if it match it renders the component.
+  Switch, 
   Route
 } from "react-router-dom";
 
@@ -55,9 +56,11 @@ function App() {
   return (
     <>
     <Router>
-    <Header title= " My Todos List" searchBar={false}/>
-    <Switch>
-          <Route exact path="/" render={()=>{
+      <NavbarNav />
+      <div className="flex">
+      <Sidebar />
+        <div className="content">
+        <Route className="Todo" exact path="/" render={()=>{
             return(
             <>
               <AddTodo addTodo={addTodo}/>
@@ -65,14 +68,23 @@ function App() {
             </>)
           }}>
           </Route>
-          <Route exact path="/about">
-            <About />
+          <Route exact path="/about" component={About} />
+            
+        <Switch>
+          
+          
+          <Route exact path="/login">
+            <Login />
           </Route>
           
           
         </Switch>
+        
     
-    <Footer/>
+      
+        </div>
+      </div>
+      <Footer/>
     </Router>
     </>
 
