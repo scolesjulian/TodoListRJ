@@ -6,6 +6,9 @@ import { Footer } from "./MyComponents/Footer";
 import { AddTodo } from "./MyComponents/AddTodo";
 import { About } from "./pages/About";
 import Login from "./pages/Login";
+import LandingPage from "./pages/LandingPage";
+import Register from "./pages/Register";
+import { MyProfile } from "./pages/MyProfile";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -50,15 +53,18 @@ function App() {
   return (
     <>
       <Router>
+        <Route exact path="/" component={LandingPage} />
         <div className="flex">
           <Sidebar />
           <div className="content w-100">
             <NavbarNav />
+
             <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
             <Route
               className="Todo"
               exact
-              path="/"
+              path="/Todo"
               render={() => {
                 return (
                   <>
@@ -69,6 +75,7 @@ function App() {
               }}
             ></Route>
             <Route exact path="/about" component={About} />
+            <Route exact path="/myProfile" component={MyProfile} />
           </div>
         </div>
         <Footer />

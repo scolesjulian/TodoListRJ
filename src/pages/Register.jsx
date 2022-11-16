@@ -2,10 +2,10 @@ import React from "react";
 import { Grid, Paper } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   return (
     <div style={{ padding: 170 }}>
-      <h1 align="center">Wellcome to Login!!</h1>
+      <h1 align="center">Wellcome to register !!</h1>
       <hr />
       <Paper>
         <Grid container spacing={3} direction={"column"} alignItems={"center"}>
@@ -25,15 +25,10 @@ const Login = () => {
               className="form-control"
             />
           </div>
-          <div className="mb-3">
-            <a href="/register" style={{ textDecoration: "none" }}>
-              You are not registered yet?, please click here!
-            </a>
-          </div>
           <Grid item xs={12}>
-            <Link to="/Todo">
+            <Link to="/login">
               <button type="submit" className="btn btn-sm btn-success">
-                Login
+                Register
               </button>
             </Link>
           </Grid>
@@ -43,4 +38,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

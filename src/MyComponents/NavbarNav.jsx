@@ -11,6 +11,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 import * as FaIcons from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function NavbarNav(args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,9 +31,13 @@ function NavbarNav(args) {
               <DropdownToggle nav caret>
                 Julian Scoles
               </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>My Profile</DropdownItem>
-                <DropdownItem>SignOff</DropdownItem>
+              <DropdownMenu style={{ textDecoration: "none" }}>
+                <Link to="/myProfile">
+                  <DropdownItem>My Profile</DropdownItem>
+                </Link>
+                <Link to="/login">
+                  <DropdownItem>SignOff</DropdownItem>
+                </Link>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
